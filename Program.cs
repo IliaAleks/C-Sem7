@@ -42,19 +42,45 @@ double [,] massiv(int m, int n)
         {
             for (int j=0; j<n; j++)
             {
-                newMas[i,j]=rnNum.NextDouble()*100;
+                newMas[i,j]=Math.Round(rnNum.NextDouble()*100, 2);
             }
         }
         return newMas;
 }
-int m=readNum();
-int n=readNum();
-double [,] mas=massiv(m,n);
-for (int i=0; i<m; i++) 
+// int m=readNum();
+// int n=readNum();
+// double [,] mas47=massiv(m,n);
+// for (int i=0; i<m; i++) 
+// {
+//     for (int j=0; j<n; j++)
+//     {
+//         Console.Write($"{mas47[i,j]} ");
+//     }
+//      Console.WriteLine();
+// }
+
+// Task 50
+Console.WriteLine("Task 50");
+int k=readNum();
+int d=readNum();
+double [,] mas50=massiv(k,d);
+for (int i=0; i<k; i++) 
 {
-    for (int j=0; j<n; j++)
+    for (int j=0; j<d; j++)
     {
-        Console.Write($"{mas[i,j]} ");
+        Console.Write($"{mas50[i,j]} ");
     }
      Console.WriteLine();
+}
+Console.WriteLine("Введите элемент массива, который необходимо отобразить в формате [x,y], начиная с нуля: ");
+string numEl=Console.ReadLine();
+numEl=numEl.Replace("[", "");
+numEl=numEl.Replace("]", "");
+int[] numbers = numEl.Split(',').Select(snum => int.Parse(snum)).ToArray();
+if (numbers[0]>k | numbers[1]>d)
+{
+    Console.WriteLine("Такого элемента не существует");
+} else
+{
+     Console.WriteLine($"Элемент равен = {mas50[numbers[0],numbers[1]]}");
 }
